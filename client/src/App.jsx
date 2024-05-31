@@ -11,7 +11,25 @@ function App() {
 
   return (
     <>
-    
+    <h3>M E R N - menadżer więzienia</h3>
+    <nav>
+      <ul>
+        <li>
+          <Link to="/users"> Show Users List </Link>
+        </li>
+        <li>
+          <button onClick={()=>navigate("/add-user")}> You can add a new user </button>
+        </li>
+      </ul>
+    </nav>
+     
+     <Routes>
+      <Route path="/users" element={<UserList />} />
+      <Route path="/add-user" element={<AddUserForm    />} />
+      <Route path="/" element={<div><h1> Welcome to Prison Manager </h1></div>} />
+     </Routes>
+     
+     
     </>
   )
 }
