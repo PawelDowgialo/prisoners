@@ -18,7 +18,8 @@ mongoose.connect(url, { useNewUrlParser: true, useUnifiedTopology: true })
 const userSchema = new mongoose.Schema({
     name: String,
     email: String,
-    age: Number
+    age: Number,
+    imageUrl: Number
 });
 
 const User = mongoose.model('User', userSchema);
@@ -36,7 +37,8 @@ app.post('/api/users', async (req, res) => {
     const user = new User({
         name: req.body.name,
         email: req.body.email,
-        age: req.body.age
+        age: req.body.age,
+        imageUrl: req.body.imageUrl
     });
     try {
         const newUser = await user.save();
