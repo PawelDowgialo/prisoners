@@ -5,11 +5,9 @@ const cors = require('cors');
 const app = express();
 const PORT = 8000;
 
-// Middleware
 app.use(express.json());
 app.use(cors());
 
-// MongoDB connection
 const myDataBase = "myDB";
 const url = `mongodb://127.0.0.1:27017/${myDataBase}`;
 
@@ -17,7 +15,6 @@ mongoose.connect(url, { useNewUrlParser: true, useUnifiedTopology: true })
     .then(() => console.log('Connected to MongoDB'))
     .catch(err => console.log('Connection error:', err.message));
 
-// User schema and model
 const userSchema = new mongoose.Schema({
     name: String,
     email: String,
@@ -26,7 +23,6 @@ const userSchema = new mongoose.Schema({
 
 const User = mongoose.model('User', userSchema);
 
-// Routes
 app.get('/api/users', async (req, res) => {
     try {
         const users = await User.find();
@@ -81,7 +77,6 @@ app.delete("/api/users/:id", async (req, res)=>{
     })
     
 
-// Server start
 app.listen(PORT, () => console.log(`Server express is running on port ${PORT}`));
 
 

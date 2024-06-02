@@ -19,11 +19,11 @@ const Login = () => {
     return (
         <>
             <div>
-                <h2>Zaloguj się</h2>
+                <h1>Zaloguj się</h1>
                 <form onSubmit={handleLogin}>
                     <div>
-                        <label htmlFor="username">Username:</label>
                         <input
+                            placeholder="Podaj login" 
                             type="text"
                             id="username"
                             value={username}
@@ -31,8 +31,8 @@ const Login = () => {
                         />
                     </div>
                     <div>
-                        <label htmlFor="password">Password:</label>
                         <input
+                            placeholder="Podaj hasło" 
                             type="password"
                             id="password"
                             value={password}

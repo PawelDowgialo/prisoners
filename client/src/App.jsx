@@ -17,7 +17,7 @@ function App() {
       <Route path="/users" element={<UserList />} />
       <Route path="/add-user" element={<AddUserForm    />} />
       <Route path="/" element={<div className='title'><h1> Witamy w programie zarządzającym więźniami </h1>
-      <button onClick={()=>{navigate("users")}} type="submit">Login</button>
+      <button onClick={()=>{navigate("login")}} type="submit">Zaloguj się</button>
       </div>} />
      </Routes>
      

@@ -1,9 +1,10 @@
 import { useState, useEffect } from "react";
+import {useNavigate} from 'react-router-dom'
 import axios from "axios";
 
 const UserList = () => {
     const [usersList, setUsersList] = useState([]);
-
+    const navigate = useNavigate()
     async function fetchData() {
         console.log("I am fetching");
         try {
@@ -27,26 +28,49 @@ const UserList = () => {
         }
     };
 
+    const editUser = (userId) => {
+        navigate(`/edit-user/${userId}`);
+    };
+    
     useEffect(() => {
         fetchData();
     }, []);
 
     return (
-        <>
-            <h1>Lista użytkowników</h1>
-            <h2>Users:</h2>
-            <button onClick={fetchData}>Pobierz dane o użytkownikach</button>
-            <ul style={{ listStyle: 'none' }}>
-                {
-                    usersList.map(user => (
-                        <li key={user._id} onClick={() => deleteUser(user._id)}>
-                            imię: {user.name}, email: {user.email}, wiek: {user.age}
-                            <img src={user.imageUrl} alt="user" width="300" />
-                        </li>
-                    ))
-                }
-            </ul>
-        </>
+        <div id="all">
+            <h1>Lista więźniów</h1>
+            <div id="buttons1">
+                <button id="powrot" onClick={()=>{navigate("/")}}>Powrót</button>
+                <button id="dodaj" onClick={()=>{navigate("../add-user")}}>Dodaj</button>
+                <button id="odswiez" onClick={fetchData}>Odśwież</button>
+            </div>
+            <br/>
+            <div className="prisoners-grid">
+                {usersList.map(user => (
+                <div key={user._id} className="prisoner-card" onClick={()=>{navigate('/')}}>
+                    <img src={user.imageUrl} alt="user" className="prisoner-image" />
+                    <div className="prisoner-details">
+                    <p>Imię: {user.name}</p>
+                    <p>Wiek: {user.age}</p>
+                    </div>
+                    <div className="button-container">
+                        <button className="editdelete"
+                        onClick={(e) => {
+                            e.stopPropagation(); // Zatrzymanie zdarzeń
+                            deleteUser(user._id);
+                        }}>usuń</button>
+
+                        <button className="editdelete"
+                        onClick={(e) => {
+                            e.stopPropagation(); // Zatrzymanie zdarzeń
+                            editUser(user._id);
+                        }}>edytuj</button>
+                    </div>
+                    
+                </div>
+                ))}
+            </div>
+        </div>
     );
 };
 

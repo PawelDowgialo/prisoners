@@ -53,8 +53,125 @@ body {
 }
 
 .title{
-  background-color: black;
-  opacity: 0.8;
+  background-color: rgba(58, 58, 58, 0.644);
   padding: 50px;
   color: #ffffff;
+}
+
+h1 {
+  text-align: center;
+}
+
+button {
+  display: block;
+  margin: 0 auto 20px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.prisoners-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  padding: 20px;
+}
+
+
+
+.prisoner-card {
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  text-align: center;
+  cursor: pointer;
+  transition: transform 0.3s;
+  color: #1a1a1a;
+}
+
+.prisoner-card:hover {
+  transform: scale(1.05);
+}
+
+.prisoner-image {
+  width: 100%;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  height: auto;
+}
+
+.prisoner-details {
+  padding: 10px;
+}
+
+.prisoner-details p {
+  margin: 10px 0;
+}
+#all{
+  background-color: rgba(58, 58, 58, 0.644);
+  padding: 10px;
+  color: #ffffff;
+}
+#buttons1{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+input{
+  width: 250px;
+  height: 30px;
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid rgb(83, 83, 83);
+  color: white;
+  font-size: 16px;
+}
+
+.button-container {
+  display: flex;
+  gap: 10px; /* Odstęp między przyciskami */
+}
+
+.editdelete {
+  background-color: #ff4d4d;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 30px; 
+  width: 80px;
+}
+
+@media (max-width: 828px) {
+  .prisoners-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    padding: 20px;
+  }
+}
+
+@media (max-width: 560px) {
+  .prisoner-card {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 0px;
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.3s;
+    color: #1a1a1a;
+  }
+
+  .prisoners-grid {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 20px;
+    padding: 20px;
+  }
 }
