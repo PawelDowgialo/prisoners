@@ -39,7 +39,7 @@ const AddUserForm = () => {
             name: newUser.name,
             age: newUser.age,
             email: newUser.email,
-            imageUrl: newUser.imageUrl  // Dodanie imageUrl do formData
+            imageUrl: newUser.imageUrl
         };
 
         console.log("FormData value");
@@ -54,7 +54,7 @@ const AddUserForm = () => {
             navigate('../users');
 
         } catch (err) {
-            console.error(`Some problems with your fetch operation: ${err.message}`);
+            console.error(`Some problems with fetch operation: ${err.message}`);
         }
     };
 
@@ -66,19 +66,19 @@ const AddUserForm = () => {
                     type="text" 
                     placeholder="Imię więźnia" 
                     value={newUser.name}
-                    onChange={e => setNewUser({ ...newUser, name: e.target.value })} 
+                    onChange={e => setNewUser({ ...newUser, name: e.target.value })}
                 /><br/>
                 <input 
                     type="email" 
                     placeholder="Email" 
                     value={newUser.email}
-                    onChange={e => setNewUser({ ...newUser, email: e.target.value })} 
+                    onChange={e => setNewUser({ ...newUser, email: e.target.value })} //zachowanie poprzedniej wartosci newUser czylil name
                 /><br/>
                 <input 
                     type="number" 
                     placeholder="Wiek" 
                     value={newUser.age}
-                    onChange={e => setNewUser({ ...newUser, age: e.target.value })} 
+                    onChange={e => setNewUser({ ...newUser, age: e.target.value })} //to samo tylko name i email
                 /><br/>
                 <select
                     value={newUser.imageUrl}
