@@ -106,6 +106,9 @@ button {
 }
 
 .prisoner-details p {
+  border: 2px solid rgba(107, 107, 107, 0.5);
+  border-radius: 5px;
+  font-size: 18px;
   margin: 10px 0;
 }
 #all{
@@ -126,6 +129,7 @@ input{
   border: 1px solid rgb(83, 83, 83);
   color: white;
   font-size: 16px;
+  margin-bottom: 5px;
 }
 
 .button-container {
@@ -144,7 +148,8 @@ input{
   align-items: center;
   justify-content: center;
   height: 30px; 
-  width: 80px;
+  width: 100px;
+  border: 1px solid #ff0404;
 }
 
 @media (max-width: 828px) {
@@ -181,4 +186,39 @@ select{
   color: white;
   font-size: 16px;
   border-radius: 10px;
+}
+
+.button-container-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row; /* Dodaj tę linię */
+}
+
+.button-container-center button {
+  margin: 10px 5px; /* Dodaj odpowiedni odstęp między przyciskami */
+}
+.submit-add-button{
+  margin-top: 5px;
+}
+.paragraph-details p{
+  font-size: 25px;
+  font-weight: 500;
+}
+.paragraph-details p::first-letter{
+  font-size: 30px;
+  font-weight: 500;
+}
+.details-container{
+  background-color: #1a1a1a8f;
+  padding: 100px;
+}
+#powrot{
+  width: 150px;
+}
+#dodaj{
+  width: 150px;
+}
+#odswiez{
+  width: 150px;
 }

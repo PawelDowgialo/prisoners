@@ -35,12 +35,16 @@ app.get('/api/users', async (req, res) => {
 
 app.get('/api/users/:id', async (req, res) => {
     try {
-        const users = await User.find();
-        res.json(users);
+        const user = await User.findById(req.params.id);
+        if (!user) {
+            return res.status(404).json({ message: 'User not found' });
+        }
+        res.json(user);
     } catch (err) {
         res.status(500).json({ message: err.message });
     }
 });
+
 
 app.post('/api/users', async (req, res) => {
     const user = new User({

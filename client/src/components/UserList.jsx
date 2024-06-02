@@ -55,13 +55,22 @@ const UserList = () => {
             <br />
             <div className="prisoners-grid">
                 {usersList.map(user => (
-                    <div key={user._id} className="prisoner-card" onClick={() => { navigate('/') }}>
+                    <div key={user._id} className="prisoner-card" onClick={() => { navigate(`/detail-user/${user._id}`) }}>
                         {(() => {
                     if (user.imageUrl == 1){
                         return <img src={zdj1} alt="user" className="prisoner-image" />;
                     }else if (user.imageUrl == 2){
                         return <img src={zdj2} alt="user" className="prisoner-image" />;
-                    }else{
+                    }else if (user.imageUrl == 3){
+                        return <img src={zdj3} alt="user" className="prisoner-image" />;
+                    }else if (user.imageUrl == 4){
+                        return <img src={zdj4} alt="user" className="prisoner-image" />;
+                    }else if (user.imageUrl == 5){
+                        return <img src={zdj5} alt="user" className="prisoner-image" />;
+                    }else if (user.imageUrl == 6){
+                        return <img src={zdj6} alt="user" className="prisoner-image" />;
+                    }
+                    else{
                         return <img src={defaults} alt="user" className="prisoner-image" />;
                     }
                 })()}

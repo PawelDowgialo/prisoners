@@ -39,21 +39,20 @@ const EditUserForm = () => {
     };
 
     const getImageSrc = (imageUrl) => {
-        switch (imageUrl) {
-            case "1":
-                return zdj1;
-            case "2":
-                return zdj2;
-            case "3":
-                return zdj3;
-            case "4":
-                return zdj4;
-            case "5":
-                return zdj5;
-            case "6":
-                return zdj6;
-            default:
-                return defaults;
+        if (imageUrl == 1){
+            return zdj1
+        }else if (imageUrl == 2){
+            return zdj2
+        }else if (imageUrl == 3){
+            return zdj3
+        }else if (imageUrl == 4){
+            return zdj4
+        }else if (imageUrl == 5){
+            return zdj5
+        }else if (imageUrl == 6){
+            return zdj6
+        }else{
+            return defaults
         }
     };
 
@@ -96,8 +95,10 @@ const EditUserForm = () => {
                         <img src={getImageSrc(user.imageUrl)} alt={`Zdjęcie ${user.imageUrl}`} style={{ width: '200px', marginTop: '10px' }} />
                     </div>
                 )}
-                <button id="powrot" onClick={() => { navigate("/users") }}>Powrót</button>
-                <button type="submit">Aktualizuj</button>
+                <div className="button-container-center">
+                    <button id="powrot" onClick={() => { navigate("/users") }}>Powrót</button>
+                    <button type="submit">Aktualizuj</button>
+                </div>
             </form>
         </>
     );

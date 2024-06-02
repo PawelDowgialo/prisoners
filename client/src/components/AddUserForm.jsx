@@ -14,23 +14,22 @@ const AddUserForm = () => {
     const navigate = useNavigate();
 
     function getImageSrc(imageUrl) {
-        switch (imageUrl) {
-            case "1":
-                return zdj1;
-            case "2":
-                return zdj2;
-            case "3":
-                return zdj3;
-            case "4":
-                return zdj4;
-            case "5":
-                return zdj5;
-            case "6":
-                return zdj6;
-            default:
-                return ""; // Możesz tutaj zwrócić domyślną ścieżkę lub pusty string
+        if (imageUrl == 1){
+            return zdj1
+        }else if (imageUrl == 2){
+            return zdj2
+        }else if (imageUrl == 3){
+            return zdj3
+        }else if (imageUrl == 4){
+            return zdj4
+        }else if (imageUrl == 5){
+            return zdj5
+        }else if (imageUrl == 6){
+            return zdj6
+        }else{
+            return defaults
         }
-    }
+        }
     
 
     const submitHandler = async (e) => {
@@ -62,7 +61,7 @@ const AddUserForm = () => {
     return (
         <>
             <h1>Dodaj więźnia</h1>
-            <form onSubmit={submitHandler}>
+            <form className="formclass" onSubmit={submitHandler}>
                 <input 
                     type="text" 
                     placeholder="Imię więźnia" 
@@ -94,11 +93,11 @@ const AddUserForm = () => {
                 </select>
                 {newUser.imageUrl && ( //gdy newUser.imageUrl jest true
                     <div>
-                        <h3>Wybrane zdjęcie:</h3>
+                        <h2 style={{ borderBottom: "2px solid black", borderTop: "2px solid black" }}>Wybrane zdjęcie:</h2>
                         <img src={getImageSrc(newUser.imageUrl)} alt={`Zdjęcie ${newUser.imageUrl}`} style={{ width: '200px', marginTop: '10px' }} />
                     </div>
                 )}
-               <button type="submit">Dodaj więźnia</button>
+               <button className="submit-add-button"type="submit">Dodaj więźnia</button>
             </form>
         </>
     );
